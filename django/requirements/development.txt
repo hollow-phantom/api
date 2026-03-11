@@ -1,0 +1,6 @@
+# base.txtを継承
+-r base.txt
+
+# デバッグツール
+django-extensions==3.2       # shell_plus など便利コマンド
+django-debug-toolbar==4.3    # パフォーマンス確認

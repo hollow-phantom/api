@@ -1,0 +1,5 @@
+# base.txtを継承
+-r base.txt
+
+# WSGIサーバー（本番での起動に必要）
+gunicorn==22.0
