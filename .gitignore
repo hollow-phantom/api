@@ -1,6 +1,6 @@
 # 環境変数（機密情報）
-django/.env.*
-!django/.env.example
+#django/.env.*
+#!django/.env.example
 
 # Pythonキャッシュ
 __pycache__/
