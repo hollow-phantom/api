@@ -1,0 +1,32 @@
+# Stage1: パッケージのインストール
+FROM python:3.12-slim AS builder
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements/ requirements/
+RUN pip install --no-cache-dir --user -r requirements/production.txt
+
+# Stage2: 実行環境
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# 実行に必要な最低限のパッケージのみ
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Stage1でインストールしたパッケージをコピー
+COPY --from=builder /root/.local /root/.local
+
+# コードを焼き込む(コンテキストのディレクトリをapp以下にコピー)
+COPY . .
+
+ENV PATH=/root/.local/bin:$PATH
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
