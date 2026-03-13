@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # api.apps.ApiConfig はapi/apps.pyのApiConfigクラスを用いることを示す
     # アプリ追加毎に追記が必要
-    "gph_mod.apps.GphModConfig",
+    "apps.gph_mod.apps.GphModConfig",
 ]
 
 MIDDLEWARE = [

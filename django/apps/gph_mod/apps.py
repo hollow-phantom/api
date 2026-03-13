@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class GphModConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'gph_mod'
+    name = 'apps.gph_mod'

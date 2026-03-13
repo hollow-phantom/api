@@ -21,5 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     # 追加アプリを記述
-    path("gph_mod/", include("gph_mod.urls")),
+    path("api/gph_mod/", include("apps.gph_mod.urls")),
 ]
