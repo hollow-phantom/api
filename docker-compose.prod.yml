@@ -4,7 +4,7 @@ services:
       context: ./django
       dockerfile: Dockerfile.prod
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
-    env_file: .env.production
+    env_file: ./django/.env.production
     restart: always
 
   nginx:
@@ -15,5 +15,6 @@ services:
     volumes:
       - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf
       - /opt/system/apps:/opt/system/apps  # フロント静的ファイル
-    depends_on: django
+    depends_on:
+      - django
     restart: always
