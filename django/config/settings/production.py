@@ -7,6 +7,10 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
+CORS_ALLOWED_ORIGINS = [
+    "http://appsrv",
+]
+
 # 本番用ロギング
 LOGGING = {
     "version": 1,
