@@ -9,6 +9,7 @@ X_FRAME_OPTIONS = "DENY"
 
 CORS_ALLOWED_ORIGINS = [
     "http://appsrv",
+    "http://localhost:5173",
 ]
 
 # 本番用ロギング
