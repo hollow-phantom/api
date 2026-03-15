@@ -35,4 +35,5 @@ class ProcListView(APIView):
 
         ### 結果をdictへ格納し、JSON形式でResponse
         results = [dict(zip(columns, row)) for row in rows]
+        ### コメント
         return Response(results, status=status.HTTP_200_OK)
